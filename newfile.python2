@@ -1,0 +1,65 @@
+import pandas as pd
+import numpy as np
+
+# 1. إنشاء ملف بيانات افتراضي يحتوي على أخطاء وقيم فارغة لتنظيفها
+print("--- Creating Raw Dataset ---")
+raw_data = {
+    'Product_Name': ['Laptop', 'Mouse', 'Keyboard', 'Monitor', None, 'Mouse', 'Laptop'],
+    'Sales_Units': [10, 50, np.nan, 15, 30, 50, 12],
+    'Price_Per_Unit': [800, 25, 45, 300, 150, 25, np.nan],
+    'Region': ['Cairo', 'Alex', 'Giza', 'Cairo', 'Alex', 'Alex', 'Giza']
+}
+
+# تحويل البيانات إلى جدول باستخدام Pandas وحفظها
+df_raw = pd.DataFrame(raw_data)
+df_raw.to_csv('data.csv', index=False)
+print("Saved raw dataset as 'data.csv'\n")
+
+# ==========================================
+# 2. بدء مرحلة تنظيف البيانات (Data Cleaning)
+# ==========================================
+print("--- Data Cleaning Process ---")
+# قراءة الملف من جديد
+df = pd.read_csv('data.csv')
+
+# أ) حذف السطور التي تحتوي على اسم منتج فارغ (Row with missing Product Name)
+df = df.dropna(subset=['Product_Name'])
+
+# ب) تعبئة القيم الفارغة في الوحدات المباعة بـ "المتوسط" (Fill missing units with Mean)
+mean_units = df['Sales_Units'].mean()
+df['Sales_Units'] = df['Sales_Units'].fillna(mean_units)
+
+# ج) تعبئة القيم الفارغة في السعر بـ "القيمة الأكثر تكراراً" (Fill missing price with Mode)
+mode_price = df['Price_Per_Unit'].mode()[0]
+df['Price_Per_Unit'] = df['Price_Per_Unit'].fillna(mode_price)
+
+# د) إزالة السطور المكررة تماماً (Remove Duplicates)
+df = df.drop_duplicates()
+
+print("Data Cleaned Successfully!\n")
+
+# ==========================================
+# 3. بدء مرحلة تحليل البيانات (Data Analysis)
+# ==========================================
+print("--- Data Analysis Report ---")
+
+# حساب إجمالي المبيعات لكل سطر (Sales = Units * Price)
+df['Total_Revenue'] = df['Sales_Units'] * df['Price_Per_Unit']
+
+# أ) حساب إجمالي الأرباح الكلية للشركة
+total_revenue_all = df['Total_Revenue'].sum()
+print(f"💰 Total Revenue: ${total_revenue_all:,.2f}")
+
+# ب) حساب إجمالي الوحدات المباعة لكل منتج (Grouping)
+product_sales = df.groupby('Product_Name')['Sales_Units'].sum()
+print("\n📦 Total Units Sold Per Product:")
+print(product_sales)
+
+# ج) حساب الأرباح حسب المحافظة/المنطقة
+region_revenue = df.groupby('Region')['Total_Revenue'].sum()
+print("\n🌍 Total Revenue Per Region:")
+print(region_revenue)
+
+# حفظ البيانات النظيفة والتقرير في ملف جديد
+df.to_csv('cleaned_data.csv', index=False)
+print("\nFinal clean dataset saved as 'cleaned_data.csv'")

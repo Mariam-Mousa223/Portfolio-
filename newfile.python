@@ -1,0 +1,49 @@
+import re
+
+def check_password_strength(password):
+    # المعايير الأساسية للأمان
+    length_error = len(password) < 8
+    uppercase_error = re.search(r"[A-Z]", password) is None
+    lowercase_error = re.search(r"[a-z]", password) is None
+    number_error = re.search(r"[0-9]", password) is None
+    special_char_error = re.search(r"[!@#$%^&*(),.?\":{}|<>]", password) is None
+    
+    # حساب النقاط بناءً على المعايير المستوفاة
+    score = 0
+    feedback = []
+    
+    if not length_error: score += 1
+    else: feedback.append("- Must be at least 8 characters long.")
+        
+    if not uppercase_error: score += 1
+    else: feedback.append("- Missing uppercase letters (A-Z).")
+        
+    if not lowercase_error: score += 1
+    else: feedback.append("- Missing lowercase letters (a-z).")
+        
+    if not number_error: score += 1
+    else: feedback.append("- Missing numbers (0-9).")
+        
+    if not special_char_error: score += 1
+    else: feedback.append("- Missing special characters (e.g., @, #, $).")
+    
+    # تحديد النتيجة النهائية
+    print("\n--- Password Security Analysis ---")
+    if score == 5:
+        print("Strength: VERY STRONG 💪🛡️")
+        print("Excellent! Your password meets all security guidelines.")
+    elif score >= 3:
+        print("Strength: MEDIUM ⚠️")
+        print("Your password is okay, but can be improved:")
+        for tip in feedback:
+            print(tip)
+    else:
+        print("Strength: WEAK ❌")
+        print("Alert! Your password is easy to hack. Please fix the following:")
+        for tip in feedback:
+            print(tip)
+
+# تشغيل الأداة في سطر الأوامر
+print("=== Welcome to SecureShield Password Checker ===")
+user_password = input("Enter a password to test its strength: ")
+check_password_strength(user_password)
