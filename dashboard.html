@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analytics Dashboard</title>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f1f5f9; color: #1e293b; }
+        .dashboard-header { background-color: #0f172a; color: white; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .dashboard-header h1 { margin: 0; font-size: 1.5rem; }
+        .user-profile { font-weight: 600; color: #38bdf8; }
+        .container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+        .stats-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+        .stat-card { flex: 1; min-width: 220px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #38bdf8; }
+        .stat-card.revenue { border-left-color: #10b981; }
+        .stat-card h3 { margin: 0 0 10px 0; color: #64748b; font-size: 0.95rem; }
+        .stat-card .value { font-size: 1.8rem; font-weight: 700; }
+        .table-section { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .data-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .data-table th, .data-table td { padding: 14px; border-bottom: 1px solid #e2e8f0; }
+        .data-table th { background-color: #f8fafc; color: #475569; }
+        .badge-region { background-color: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+        .back-link { display: inline-block; margin-top: 20px; color: #64748b; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-header">
+        <h1>Corporate Sales Dashboard</h1>
+        <div class="user-profile">Data Analyst: Mariam Mousa</div>
+    </div>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card revenue">
+                <h3>Total Cleaned Revenue</h3>
+                <div class="value">$15,283.00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Top Selling Product</h3>
+                <div class="value">Mouse (50 Units)</div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>Cleaned Dataset Records (Verified by Pandas)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Product</th><th>Units Sold</th><th>Price</th><th>Region</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Laptop</strong></td><td>10.0</td><td>$800.00</td><td><span class="badge-region">Cairo</span></td></tr>
+                    <tr><td><td><strong>Mouse</strong></td><td>50.0</td><td>$25.00</td><td><span class="badge-region">Alex</span></td></tr>
+                </tbody>
+            </table>
+            <br>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </div>
+
+</body>
+</html>
