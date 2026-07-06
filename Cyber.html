@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureShield | Cybersecurity Solutions</title>
+    <style>
+    /* 1. التنسيقات العامة للموقع */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0b0f19; /* خلفية داكنة جداً تكنولوجية */
+        color: #e2e8f0;
+        line-height: 1.6;
+    }
+
+    /* 2. تنسيق الـ Header وشريط التنقل */
+    header {
+        background-color: #111827;
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #10b981; /* خط أخضر نيون أسفل الهيدر */
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+    }
+    .logo span {
+        color: #10b981; /* تلوين كلمة Shield بالأخضر */
+    }
+    nav a {
+        color: #9ca3af;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+    nav a:hover {
+        color: #10b981;
+    }
+    .btn-nav {
+        background: transparent;
+        border: 2px solid #10b981;
+        color: #10b981;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    .btn-nav:hover {
+        background: #10b981;
+        color: #0b0f19;
+    }
+
+    /* 3. تنسيق الواجهة الرئيسية (Hero Section) */
+    #hero {
+        background: linear-gradient(135deg, #111827, #0b0f19);
+        padding: 100px 5%;
+        text-align: center;
+    }
+    #hero h1 {
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #hero p {
+        font-size: 1.2rem;
+        color: #9ca3af;
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+    }
+    .btn-main {
+        background: #10b981;
+        color: #0b0f19;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+        transition: transform 0.3s;
+    }
+    .btn-main:hover {
+        transform: translateY(-3px);
+    }
+
+    /* 4. تنسيق سكشن الخدمات (Services Section) */
+    #services, #why-us, #contact {
+        padding: 8px 5%;
+        max-width: 1100px;
+        margin: 60px auto;
+    }
+    section h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #fff;
+        margin-bottom: 40px;
+        position: relative;
+    }
+    .services-grid {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .service-card {
+        flex: 1;
+        min-width: 280px;
+        background-color: #111827;
+        padding: 30px;
+        border-radius: 8px;
+        border-top: 4px solid #10b981;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+    }
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+    .service-card h3 {
+        color: #fff;
+        margin-top: 0;
+    }
+
+    /* 5. تنسيق سكشن المميزات (Why Choose Us) */
+    .features {
+        background-color: #111827;
+        padding: 30px;
+        border-radius: 8px;
+    }
+    .features p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        border-left: 3px solid #10b981;
+        padding-left: 15px;
+    }
+
+    /* 6. تنسيق سكشن الـ Form */
+    form {
+        background-color: #111827;
+        padding: 40px;
+        border-radius: 8px;
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    form input, form textarea {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+        color: #fff;
+        padding: 12px;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    form input:focus, form textarea:focus {
+        outline: none;
+        border-color: #10b981;
+    }
+    form button {
+        background: #10b981;
+        color: #0b0f19;
+        border: none;
+        padding: 12px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    form button:hover {
+        background: #059669;
+    }
+
+    /* 7. الـ Footer */
+    footer {
+        text-align: center;
+        padding: 30px;
+        background-color: #0b0f19;
+        color: #6b7280;
+        font-size: 0.9rem;
+        border-top: 1px solid #1f2937;
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- 1. Header Section -->
+    <header>
+        <div class="logo">Secure<span>Shield</span></div>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#services">Services</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="btn-nav">Get a Free Audit</button>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section id="hero">
+        <div class="hero-text">
+            <h1>Protect Your Digital Assets From Cyber Threats</h1>
+            <p>We provide advanced cybersecurity services, threat detection, and data protection tailored for your business integrity.</p>
+            <button class="btn-main">Explore Services</button>
+        </div>
+    </section>
+
+    <!-- 3. Services Section -->
+    <section id="services">
+        <h2>Our Security Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Network Security</h3>
+                <p>Monitoring and protecting your internal network from unauthorized access and cyber attacks.</p>
+            </div>
+            <div class="service-card">
+                <h3>Penetration Testing</h3>
+                <p>Simulating real-world cyber attacks to find and fix vulnerabilities before hackers do.</p>
+            </div>
+            <div class="service-card">
+                <h3>Data Encryption</h3>
+                <p>Securing sensitive company and client data with advanced encryption algorithms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Why Choose Us Section -->
+    <section id="why-us">
+        <h2>Why Businesses Trust SecureShield</h2>
+        <div class="features">
+            <p><strong>24/7 Monitoring:</strong> Continuous threat hunting and immediate incident response.</p>
+            <p><strong>Certified Experts:</strong> A dedicated team with top-tier global security credentials.</p>
+        </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact">
+        <h2>Request a Security Consultation</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Business Email" required>
+            <textarea placeholder="Tell us about your security needs" rows="5" required></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SecureShield. All rights reserved to Mariam Mousa.</p>
+    </footer>
+
+</body>
+</html>
+
