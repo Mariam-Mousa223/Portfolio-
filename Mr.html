@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariam Mousa | Portfolio</title>
+  <style>
+    /* تعريف متغيرات الألوان للوضعين */
+    :root {
+        --bg-color: #0f172a;
+        --text-color: #f8fafc;
+        --card-bg: #1e293b;
+        --header-bg: linear-gradient(135deg, #1e293b, #0f172a);
+        --p-color: #94a3b8;
+    }
+
+    [data-theme='light'] {
+        --bg-color: #f1f5f9;
+        --text-color: #0f172a;
+        --card-bg: #ffffff;
+        --header-bg: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+        --p-color: #475569;
+    }
+
+    /* الانتقال الناعم والسلس عند النزول */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body { 
+        font-family: 'Segoe UI', sans-serif; 
+        margin: 0; 
+        background-color: var(--bg-color); 
+        color: var(--text-color); 
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    header { 
+        background: var(--header-bg); 
+        padding: 20px 5%; 
+        border-bottom: 1px solid #1e293b; 
+        transition: background 0.3s;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; color: #38bdf8; text-align:center;  }
+    header p { color: var(--text-color); font-size: 1.1rem; max-width: 800px; margin: 10px auto 0 auto; line-height: 1.6; }
+    
+    .container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { color: #38bdf8; border-bottom: 2px solid #38bdf8; padding-bottom: 8px; margin-top: 40px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    
+    .card { 
+        background: var(--card-bg); 
+        padding: 25px; 
+        border-radius: 12px; 
+        border-left: 4px solid #38bdf8; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between;
+        transition: background-color 0.3s;
+    }
+    .card h3 { margin-top: 0; color: var(--text-color); }
+    .card p { color: var(--p-color); font-size: 0.95rem; line-height: 1.5;}
+    
+    .tech-tag { background: #0c4a6e; color: #38bdf8; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin: 5px 2px; }
+    .btn { display: inline-block; margin-top: 15px; color: #38bdf8; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+    .btn:hover { text-decoration: underline; }
+    
+    ul { padding-left: 20px; color: var(--p-color); }
+    li { margin-bottom: 10px; line-height: 1.5; }
+
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; 0 }
+    .nav-container h2 { margin: 0; font-size: 1.5rem; color: var(--text-color); position:relative; right:50px; }
+    .nav-links { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
+    .nav-links li { margin-left: 20px; }
+    .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    .nav-links a:hover { color: #38bdf8; }
+
+    /* تنسيق زرار التبديل الشيك */
+    /* تصميم مفتاح التبديل (Switch Container) */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 50px;
+}
+.theme-switch {
+    display: inline-block;
+    height: 26px;
+    position: relative;
+    width: 50px;
+}
+.theme-switch input {
+    display: none;
+}
+/* الخلفية المدورة للمفتاح */
+.slider {
+    background-color: #334155;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+/* الدائرة البيضاء المتحركة اللي جوه */
+.slider:before {
+    background-color: #fff;
+    bottom: 3px;
+    content: "";
+    height: 20px;
+    left: 3px;
+    position: absolute;
+    transition: .4s;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 2;
+}
+/* حركة الدائرة لما نضغط عليها تروح الناحية التانية */
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+/* تغيير لون الخلفية للمفتاح في الوضع الفاتح */
+input:checked + .slider {
+    background-color: #38bdf8;
+}
+/* أيقونات الشمس والقمر الصغيرة جوه الزرار */
+.slider .icon {
+    font-size: 12px;
+    user-select: none;
+    z-index: 1;
+}
+
+</style>
+
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+        <h2>Mariam Mousa</h2>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills & Experience</a></li>
+            <li><a href="#project">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" onclick="toggleTheme()" />
+            <div class="slider">
+                <span class="icon">🌙</span>
+                <span class="icon">☀️</span>
+            </div>
+        </label>
+    </div>
+</li>
+
+        </ul>
+    </div>
+</header>
+
+     
+    <header>
+      <section id="about">
+        <h1>Mariam Mousa</h1>
+        <p>Information Systems Student & Passionate Tech Professional. I bridge the gap between creative Front-End Web Design and secure backend workflows with Python. With a strong academic background, proven business experience in Sales & Marketing, and certified training in Cybersecurity, I build comprehensive, user-centric, and secure digital solutions.</p>
+    </header>
+
+    <div class="container">
+        <section id="skills">
+        <h2 class="section-title">My Skills & Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Technical & Business Skills</h3>
+                    <ul>
+                        <li><strong>Web Development:</strong> HTML5, CSS3 & Front-End Web Design</li>
+                        <li><strong>Programming & Automation:</strong> Python Programming</li>
+                        <li><strong>Data & Productivity:</strong> Microsoft Excel & Word Specialist</li>
+                        <li><strong>Business Communication:</strong> Sales, Content Moderation & Digital Marketing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <h3>Certified Credentials</h3>
+                    <ul>
+                        <li><strong>Cybersecurity Training</strong> – Certified accredited by the Ministry of Higher Education</li>
+                        <li><strong>Graphics & Multimedia Training</strong> – Certificate accredited by the Ministry of Higher Education</li>
+                        <li><strong>Web Development & Python Courses</strong> – Certificate accredited by the Ministry of Youth & Sports</li>
+                        <li><strong>Front-End Web Design Course : HTML & CSS </strong> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section id="project">
+        <h2 class="section-title">My Projects (Hosted on GitHub)</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Personal Portfolio Website</h3>
+                    <p>A professional, responsive portfolio built from scratch using HTML5 and CSS3 to showcase my core technical skills and professional background.</p>
+                    <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Responsive Design</span>
+                </div>
+                <a class="btn" href="index.html">View Project →</a>
+            </div>
+            <div class="card">
+                <div>
+                    <h3>SecureShield - Cybersecurity Landing Page</h3>
+                    <p>A sleek, modern dark-themed landing page designed for a cybersecurity agency. Showcases service grids, trust factors, and a fully stylized contact audit form.</p>
+                    <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">UI/UX Design</span>
+                </div>
+                <a class="btn" href="Cyber.html">View Project →</a>
+            </div>
+            <div class="card">
+                <div>
+                    <h3>NovaStyle - E-commerce Product Page</h3>
+                    <p>A clean, modern product page built to demonstrate conversion-focused web design. Features a dynamic layout pairing sharp imagery with optimized product pricing and features.</p>
+                    <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Sales & Marketing</span>
+                </div>
+                <a class="btn" href="Product.html">View Project →</a>
+            </div>
+            <div class="card">
+                <div>
+                    <h3>SecureShield Password Strength Checker</h3>
+                    <p>A functional Python command-line utility that applies cryptographic best practices to evaluate password complexity, auditing length, casing, numbers, and special characters.</p>
+                    <span class="tech-tag">Python 3</span><span class="tech-tag">Cybersecurity</span><span class="tech-tag">RegEx</span>
+                </div>
+                <a class="btn" href="dashboard.html">View Project →</a>
+            </div>
+        </div>
+         <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="card" style="margin-top: 20px; border-left: 4px solid #38bdf8;">
+            <p><strong>Email:</strong> <a href="mailto:mousamariam170@gmail.com" style="color: #38bdf8; text-decoration: none;">mousamariam170@gmail.com</a></p>
+            <p><strong>GitHub Profile:</strong> <a href="https://github.com/Mariam-Mousa223" target="_blank" style="color: #38bdf8; text-decoration: none;">https://github.com/Mariam-Mousa223</a></p>
+        </div>
+
+    </div>
+    
+    
+    <script>
+    function toggleTheme() {
+        const checkbox = document.getElementById('checkbox');
+        if (checkbox.checked) {
+            document.body.setAttribute('data-theme', 'light');
+        } else {
+            document.body.removeAttribute('data-theme');
+        }
+    }
+</script>
+
+</script>
+
+
+</body>
+</html>
+
