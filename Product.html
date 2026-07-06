@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Product Page</title>
+    <style>
+    /* 1. التنسيقات العامة */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8fafc; /* خلفية هادية ومريحة */
+        color: #1e293b;
+    }
+
+    /* 2. شريط المتجر العلوي (Header) */
+    header {
+        background-color: #fff;
+        padding: 20px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .brand {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #0f172a;
+    }
+    .brand span {
+        color: #ff6b6b; /* لون كورال مميز للبراند */
+    }
+    .cart-icon {
+        font-weight: 600;
+        background-color: #f1f5f9;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    /* 3. حاوية المنتج الرئيسية (Flexbox لتقسيم الصفحة نصفين) */
+    .product-container {
+        max-width: 1100px;
+        margin: 50px auto;
+        padding: 0 5%;
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap; /* عشان يظبط على الشاشات الصغيرة والموبايل */
+    }
+
+    /* الجزء الأيسر: الصورة */
+    .product-image {
+        flex: 1;
+        min-width: 300px;
+    }
+    .image-placeholder {
+        background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+        height: 400px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #64748b;
+        font-weight: 600;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* الجزء الأيمن: تفاصيل المنتج */
+    .product-details {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .badge {
+        background-color: #ffeede;
+        color: #ff6b6b;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        width: fit-content;
+        margin-bottom: 15px;
+    }
+    .product-details h1 {
+        font-size: 2.2rem;
+        color: #0f172a;
+        margin: 0 0 10px 0;
+    }
+    .rating {
+        color: #f59e0b; /* لون النجوم الذهبي */
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0 0 20px 0;
+    }
+    .old-price {
+        font-size: 1.3rem;
+        color: #94a3b8;
+        text-decoration: line-through; /* خط فوق السعر القديم */
+        margin-left: 10px;
+        font-weight: 500;
+    }
+    .description {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #475569;
+        margin-bottom: 30px;
+    }
+    
+    /* زرار الشراء الاحترافي */
+    .btn-buy {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(255, 107, 107, 0.4);
+        transition: all 0.3s;
+        width: fit-content;
+    }
+    .btn-buy:hover {
+        background-color: #fa5252;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+    }
+
+    /* 4. سكشن المميزات (Features) */
+    .features-section {
+        max-width: 1100px;
+        margin: 80px auto 40px auto;
+        padding: 0 5%;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .feature-card {
+        flex: 1;
+        min-width: 250px;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .feature-card h3 {
+        margin: 0 0 10px 0;
+        color: #0f172a;
+        font-size: 1.2rem;
+    }
+    .feature-card p {
+        margin: 0;
+        color: #64748b;
+        font-size: 0.95rem;
+    }
+
+    /* 5. الـ Footer */
+    footer {
+        text-align: center;
+        padding: 40px;
+        color: #94a3b8;
+        font-size: 0.9rem;
+        border-top: 1px solid #e2e8f0;
+        margin-top: 60px;
+        background-color: #fff;
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- 1. Header Section -->
+    <header>
+        <div class="brand">Nova<span>Style</span></div>
+        <div class="cart-icon">🛒 Cart (0)</div>
+    </header>
+
+    <!-- 2. Main Product Section -->
+    <section class="product-container">
+        <!-- الجزء الأيسر: صورة المنتج (تقدري تستخدمي صورة افتراضية حالياً) -->
+<div class="product-image">
+    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Nova Sound Pro" style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);">
+</div>
+
+
+        <!-- الجزء الأيمن: تفاصيل المنتج والتسويق له -->
+        <div class="product-details">
+            <span class="badge">Hot Release</span>
+            <h1>Nova Sound Pro - Wireless Headphones</h1>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.9/5 Premium Reviews)</div>
+            <p class="price">$149.00 <span class="old-price">$199.00</span></p>
+            
+            <p class="description">
+                Experience sound like never before. Featuring advanced Active Noise Cancellation (ANC), 40-hour battery life, and premium ergonomic earcups designed for ultimate style and comfort.
+            </p>
+
+            <button class="btn-buy">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- 3. Features Section -->
+    <section class="features-section">
+        <div class="feature-card">
+            <h3>Free Shipping</h3>
+            <p>On all orders above $50</p>
+        </div>
+        <div class="feature-card">
+            <h3>1-Year Warranty</h3>
+            <p>Full tracking & replacement</p>
+        </div>
+        <div class="feature-card">
+            <h3>Secure Payment</h3>
+            <p>100% protected checkout</p>
+        </div>
+    </section>
+
+    <!-- 4. Footer -->
+    <footer>
+        <p>&copy; 2026 NovaStyle. Designed by Mariam Mousa.</p>
+    </footer>
+
+</body>
+</html>
+
