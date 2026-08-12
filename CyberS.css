@@ -1,0 +1,219 @@
+/* التنسيقات العامة للموقع */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+/* الهيدر وشريط التنقل */
+header {
+    background-color: #111827;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #10b981;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #10b981;
+}
+
+nav a {
+    color: #9ca3af;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #10b981;
+}
+
+.btn-nav {
+    background: transparent;
+    border: 2px solid #10b981;
+    color: #10b981;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-nav:hover {
+    background: #10b981;
+    color: #0b0f19;
+}
+
+/* الواجهة الرئيسية (Hero Section) */
+#hero {
+    background: linear-gradient(135deg, #111827, #0b0f19);
+    padding: 100px 5%;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    color: #9ca3af;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn-main {
+    background: #10b981;
+    color: #0b0f19;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    transition: transform 0.3s;
+}
+
+.btn-main:hover {
+    transform: translateY(-3px);
+}
+
+/* الأقسام العامة */
+#services, #why-us, #contact {
+    padding: 8px 5%;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+/* شبكة الخدمات */
+.services-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    flex: 1;
+    min-width: 280px;
+    background-color: #111827;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 4px solid #10b981;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+/* المميزات */
+.features {
+    background-color: #111827;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.features p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    border-left: 3px solid #10b981;
+    padding-left: 15px;
+}
+
+/* النموذج (Form) */
+form {
+    background-color: #111827;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form textarea {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+form button {
+    background: #10b981;
+    color: #0b0f19;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #059669;
+}
+
+/* الـ Footer زرار العودة */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #0b0f19;
+    color: #6b7280;
+    font-size: 0.9rem;
+    border-top: 1px solid #1f2937;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #10b981;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
